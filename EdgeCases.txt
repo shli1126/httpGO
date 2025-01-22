@@ -1,0 +1,58 @@
+1. 
+If this timeout occurs and the client has sent part of a request, 
+but not a full request, then the server should reply back with a 
+400 client error (described below) ?????
+
+2. 
+ A well-formed URL always starts with a / character. If the slash 
+ is missing, send back a 400 error. Note that if the URL ends 
+ with / like /path/to/dir/, then you should interpret that as if 
+ the client requested the URL /path/to/dir/index.html.  !!!!!
+
+3.
+Note that if the URL ends with / like /path/to/dir/, then you 
+should interpret that as if the client requested the
+URL /path/to/dir/index.html.
+
+4.
+Any request that doesn't align with the specifications outlined 
+in this document should be responded to with a 400 status code.
+
+5.
+<key> is composed of one or more alphanumeric or the hyphen "-" character 
+(i.e. <key> cannot be empty). It is case-insensitive. <value> can be any 
+string not starting with space, and not containing CRLF. It is case-sensitive. 
+As a special case <value> can be an empty string.
+
+6.
+Host (required, 400 client error if not present)
+
+
+7.
+Any request headers not in the proper form (e.g., missing a colon), should signal a 400 error.
+
+
+8.
+For the ease of testing, please write response headers in sorted order / alphabetical order. 
+(Note for real HTTP, there is no need to write headers in any particular order)
+
+
+9.
+Our response messages might have a body if it’s a 200 response. In this case, the message body 
+is basically the bytes of the requested file to serve to the client. 400 and 404 messages don’t have a body.
+
+
+10.
+how to test sending two request and the second one is partial when timeout 
+
+11. 
+Connection filed can be empty?
+
+12.
+GET /subdir/index.html HTTP/1.1
+Host: website1
+User-Agent: gotest
+
+what should this return????
+
+

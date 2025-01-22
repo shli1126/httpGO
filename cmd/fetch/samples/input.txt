@@ -1,0 +1,5 @@
+GET /ubdir/ HTTP/1.1
+Host: website1
+User-Type: gotest
+Connection: close 
+
